@@ -9,7 +9,7 @@ import com.doing.plugin.extension.PreAndPostExtension;
 /**
  * @author Doing on 19/12/2018 19:41
  */
-@BizCode("jd")
+@BizCode("xianyu")
 public class XianyuExtensionFacade implements ExtensionFacade {
 
     @Override

@@ -12,7 +12,7 @@ public class TaobaoModifyExtension1 implements ModifyExtension1 {
     public void modify(String params, StringBuilder processRecord) {
         // 测试使用仅在扩展脚本依赖进来的第三方包Gson
 //        Gson gson = new Gson();
-        String jsonString = "{\"name\":\"活动A\"}";
+        String jsonString = "{\"name\":\"活动A\"}" ;
 //        Activity activity = gson.fromJson(jsonString, Activity.class);
 
 //        System.out.println("淘宝活动优化处理流程1" + activity.getName());

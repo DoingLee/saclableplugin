@@ -28,6 +28,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>2.1.1.RELEASE</version>
+            <!-- maven-assembly-plugin 打包时 不包含-->
+            <scope>provided</scope>
         </dependency>
 
         <!--测试在脚本代码库中引用包-->

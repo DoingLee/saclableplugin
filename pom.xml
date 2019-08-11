@@ -33,16 +33,25 @@
         </dependency>
 
         <!--测试在脚本代码库中引用包-->
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.5</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
         </dependency>
 
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>spring-*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -56,28 +65,84 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Assembly Plugin -->
-            <!--会打出两个包：XXX-jar-with-dependencies.jar（包含第三方的jar）和XXX.jar（不含第三方jar）-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
-                    <!-- get all project dependencies ：包含所有依赖的第三方jar-->
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
                 <executions>
                     <execution>
-                        <!-- 名字任意 -->
-                        <id>make-assembly</id>
-                        <!-- 绑定到package生命周期阶段上 -->
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--Maven Assembly Plugin 和 Shade Plugin 都可以用来在构建单一 Jar 包时，将所有 Dependency 打入这个最终生成的 Jar 中去。-->
+            <!--但是两者在具体的行为上有所不同：-->
+            <!-- Assembly 插件不仅会将 Dependency 中的 Class 文件打入最终的 Jar 包，还会将 Dependency 中的资源文件，诸如 properties 文件打入最终的 Jar 包。-->
+            <!--当项目和其 Dependency 中有同名的资源文件是，就会发生冲突，项目中的同名文件便不会加入到最终的 Jar 包中。如果这个文件是一个关键的配置文件，便会导致问题。而 Shade Plugin 不存在这样的问题。-->
+
+            <!-- Maven Assembly Plugin -->
+            <!--会打出两个包：XXX-jar-with-dependencies.jar（包含第三方的jar）和XXX.jar（不含第三方jar）-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                <!--<version>2.4.1</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash; get all project dependencies ：包含所有依赖的第三方jar&ndash;&gt;-->
+                    <!--<descriptorRefs>-->
+                        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+                    <!--</descriptorRefs>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--&lt;!&ndash; 名字任意 &ndash;&gt;-->
+                        <!--<id>make-assembly</id>-->
+                        <!--&lt;!&ndash; 绑定到package生命周期阶段上 &ndash;&gt;-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--&lt;!&ndash; 只运行一次 &ndash;&gt;-->
+                            <!--<goal>single</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <!-- Maven Shade Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
                         <phase>package</phase>
                         <goals>
-                            <!-- 只运行一次 -->
-                            <goal>single</goal>
+                            <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <artifactSet>
+                                <!-- 当引入新的依赖时，请注意排包 -->
+                                <!--groupId:artifactId-->
+                                <excludes>
+                                    <!-- spring jars -->
+                                    <exclude>org.springframework:*</exclude>
+                                    <!-- test jars -->
+                                    <exclude>junit:junit</exclude>
+                                    <exclude>com.alibaba:fastjson</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

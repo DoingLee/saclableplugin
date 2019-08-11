@@ -130,6 +130,8 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>${project.artifactId}-${project.version}-jar-with-dependencies</shadedClassifierName> <!-- Any name that makes sense -->
                             <artifactSet>
                                 <!-- 当引入新的依赖时，请注意排包 -->
                                 <!--groupId:artifactId-->

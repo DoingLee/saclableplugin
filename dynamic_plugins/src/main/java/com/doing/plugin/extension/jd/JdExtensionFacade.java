@@ -4,10 +4,7 @@ import com.doing.plugin.BizCode;
 import com.doing.plugin.domain.ExtensionContext;
 import com.doing.plugin.domain.RequestData;
 import com.doing.plugin.domain.ResponseData;
-import com.doing.plugin.extension.ExtensionFacade;
-import com.doing.plugin.extension.ModifyExtension1;
-import com.doing.plugin.extension.ModifyExtension2;
-import com.doing.plugin.extension.PreAndPostExtension;
+import com.doing.plugin.extension.*;
 
 /**
  * @author Doing on 19/12/2018 19:41
@@ -15,31 +12,12 @@ import com.doing.plugin.extension.PreAndPostExtension;
 @BizCode("jd")
 public class JdExtensionFacade implements ExtensionFacade {
 
-    @Override
-    public PreAndPostExtension getPreAndPostExtension() {
-        return new PreAndPostExtension() {
-            @Override
-            public void beforeProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
-                responseData.addData("Jd.pre", "京东活动前置处理流程");
-                extensionContext.getLogger().warn("Jd.pre - 京东活动前置处理流程");
-                extensionContext.debug("Jd", "京东活动前置处理流程");
-            }
-
-            @Override
-            public void afterProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
-                responseData.addData("Jd.after", "京东活动后置处理流程");
-                extensionContext.getLogger().warn("Jd.after - 京东活动后置处理流程");
-                extensionContext.debug("Jd", "京东活动后置处理流程");
-            }
-        };
-//        return new JdPreAndPostExtension();
-    }
 
     @Override
     public ModifyExtension1 getModifyExtension1() {
         return new ModifyExtension1() {
             @Override
-            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+            public void process(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
                 responseData.addData("Jd.modify1", "京东活动优化处理流程1");
                 extensionContext.getLogger().warn("Jd.modify1 - 京东活动优化处理流程1");
                 extensionContext.debug("Jd", "京东活动优化处理流程1");
@@ -53,7 +31,7 @@ public class JdExtensionFacade implements ExtensionFacade {
     public ModifyExtension2 getModifyExtension2() {
         return new ModifyExtension2() {
             @Override
-            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+            public void process(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
                 responseData.addData("Jd.modify2", "京东活动优化处理流程2");
                 extensionContext.getLogger().warn("Jd.modify2 - 京东活动优化处理流程2");
                 extensionContext.debug("Jd", "京东活动优化处理流程2");

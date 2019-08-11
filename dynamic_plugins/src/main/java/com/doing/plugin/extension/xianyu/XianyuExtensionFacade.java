@@ -7,7 +7,6 @@ import com.doing.plugin.domain.ResponseData;
 import com.doing.plugin.extension.ExtensionFacade;
 import com.doing.plugin.extension.ModifyExtension1;
 import com.doing.plugin.extension.ModifyExtension2;
-import com.doing.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 19:41
@@ -16,30 +15,10 @@ import com.doing.plugin.extension.PreAndPostExtension;
 public class XianyuExtensionFacade implements ExtensionFacade {
 
     @Override
-    public PreAndPostExtension getPreAndPostExtension() {
-        return new PreAndPostExtension() {
-            @Override
-            public void beforeProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
-                responseData.addData("Xianyu.pre", "闲鱼活动前置处理流程");
-                extensionContext.getLogger().warn("Xianyu.pre - 闲鱼活动前置处理流程");
-                extensionContext.debug("Xianyu", "闲鱼活动前置处理流程");
-            }
-
-            @Override
-            public void afterProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
-                responseData.addData("Xianyu.after", "闲鱼活动后置处理流程");
-                extensionContext.getLogger().warn("Xianyu.after - 闲鱼活动后置处理流程");
-                extensionContext.debug("Xianyu", "闲鱼活动后置处理流程");
-            }
-        };
-//        return new XianyuPreAndPostExtension();
-    }
-
-    @Override
     public ModifyExtension1 getModifyExtension1() {
         return new ModifyExtension1() {
             @Override
-            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+            public void process(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
                 responseData.addData("Xianyu.modify1", "闲鱼活动优化处理流程1");
                 extensionContext.getLogger().warn("Xianyu.modify1 - 闲鱼活动优化处理流程1");
                 extensionContext.debug("Xianyu", "闲鱼活动优化处理流程1");
@@ -53,7 +32,7 @@ public class XianyuExtensionFacade implements ExtensionFacade {
     public ModifyExtension2 getModifyExtension2() {
         return new ModifyExtension2() {
             @Override
-            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+            public void process(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
                 responseData.addData("Xianyu.modify2", "闲鱼活动优化处理流程2");
                 extensionContext.getLogger().warn("Xianyu.modify2 - 闲鱼活动优化处理流程2");
                 extensionContext.debug("Xianyu", "闲鱼活动优化处理流程2");

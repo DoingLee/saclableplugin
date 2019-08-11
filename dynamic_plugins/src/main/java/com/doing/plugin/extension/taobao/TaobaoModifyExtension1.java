@@ -9,10 +9,10 @@ import com.google.gson.Gson;
 /**
  * @author Doing on 19/12/2018 19:26
  */
-public class TaobaoModifyExtension1 implements ModifyExtension1 {
+public class TaobaoModifyExtension1 extends ModifyExtension1 {
 
     @Override
-    public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+    public void process(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
         // 测试使用仅在扩展脚本依赖进来的第三方包Gson
         Gson gson = new Gson();
         String jsonString = "{\"name\":\"活动A\"}";

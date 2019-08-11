@@ -1,10 +1,13 @@
 package com.doing.plugin.extension.xianyu;
 
 import com.doing.plugin.BizCode;
-import com.doing.plugin.extension.ExtensionFacade;
-import com.doing.plugin.extension.ModifyExtension1;
-import com.doing.plugin.extension.ModifyExtension2;
-import com.doing.plugin.extension.PreAndPostExtension;
+import com.doing.plugin.plugin.domain.ExtensionContext;
+import com.doing.plugin.plugin.domain.RequestData;
+import com.doing.plugin.plugin.domain.ResponseData;
+import com.doing.plugin.plugin.extension.ExtensionFacade;
+import com.doing.plugin.plugin.extension.ModifyExtension1;
+import com.doing.plugin.plugin.extension.ModifyExtension2;
+import com.doing.plugin.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 19:41
@@ -16,38 +19,46 @@ public class XianyuExtensionFacade implements ExtensionFacade {
     public PreAndPostExtension getPreAndPostExtension() {
         return new PreAndPostExtension() {
             @Override
-            public void beforeProcess(String params, StringBuilder processRecord) {
-                System.out.println("闲鱼活动前置处理流程");
-                processRecord.append("闲鱼活动前置处理流程 - ");
+            public void beforeProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+                responseData.addData("Xianyu.pre", "闲鱼活动前置处理流程");
+                extensionContext.getLogger().warn("Xianyu.pre - 闲鱼活动前置处理流程");
+                extensionContext.debug("Xianyu", "闲鱼活动前置处理流程");
             }
 
             @Override
-            public void afterProcess(String params, StringBuilder processRecord) {
-                System.out.println("闲鱼活动后置处理流程");
-                processRecord.append("闲鱼活动后置处理流程");
-
+            public void afterProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+                responseData.addData("Xianyu.after", "闲鱼活动后置处理流程");
+                extensionContext.getLogger().warn("Xianyu.after - 闲鱼活动后置处理流程");
+                extensionContext.debug("Xianyu", "闲鱼活动后置处理流程");
             }
         };
+//        return new XianyuPreAndPostExtension();
     }
 
     @Override
     public ModifyExtension1 getModifyExtension1() {
         return new ModifyExtension1() {
             @Override
-            public void modify(String params, StringBuilder processRecord) {
-                System.out.println("闲鱼活动优化处理流程1");
-                processRecord.append("闲鱼活动优化处理流程1 - ");
+            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+                responseData.addData("Xianyu.modify1", "闲鱼活动优化处理流程1");
+                extensionContext.getLogger().warn("Xianyu.modify1 - 闲鱼活动优化处理流程1");
+                extensionContext.debug("Xianyu", "闲鱼活动优化处理流程1");
             }
+
         };
+//        return new XianyuModifyExtension1();
     }
 
     @Override
     public ModifyExtension2 getModifyExtension2() {
         return new ModifyExtension2() {
             @Override
-            public void modify(String params, StringBuilder processRecord) {
-                System.out.println("闲鱼活动优化处理流程2");
-                processRecord.append("闲鱼活动优化处理流程2 - ");
+            public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+                responseData.addData("Xianyu.modify2", "闲鱼活动优化处理流程2");
+                extensionContext.getLogger().warn("Xianyu.modify2 - 闲鱼活动优化处理流程2");
+                extensionContext.debug("Xianyu", "闲鱼活动优化处理流程2");
+
+
             }
         };
     }

@@ -1,6 +1,9 @@
 package com.doing.plugin.extension.tmall;
 
-import com.doing.plugin.extension.ModifyExtension2;
+import com.doing.plugin.plugin.domain.ExtensionContext;
+import com.doing.plugin.plugin.domain.RequestData;
+import com.doing.plugin.plugin.domain.ResponseData;
+import com.doing.plugin.plugin.extension.ModifyExtension2;
 
 /**
  * @author Doing on 19/12/2018 19:26
@@ -8,8 +11,9 @@ import com.doing.plugin.extension.ModifyExtension2;
 public class TmallModifyExtension2 implements ModifyExtension2 {
 
     @Override
-    public void modify(String params, StringBuilder processRecord) {
-        System.out.println("天猫活动优化处理流程2");
-        processRecord.append("天猫活动优化处理流程2 - ");
+    public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+        responseData.addData("Tmall.modify2", "天猫活动优化处理流程2");
+        extensionContext.getLogger().warn("Tmall.modify2 - 天猫活动优化处理流程2");
+        extensionContext.debug("Tmall", "天猫活动优化处理流程2");
     }
 }

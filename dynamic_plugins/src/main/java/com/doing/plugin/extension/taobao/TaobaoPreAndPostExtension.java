@@ -1,6 +1,10 @@
 package com.doing.plugin.extension.taobao;
 
-import com.doing.plugin.extension.PreAndPostExtension;
+
+import com.doing.plugin.plugin.domain.ExtensionContext;
+import com.doing.plugin.plugin.domain.RequestData;
+import com.doing.plugin.plugin.domain.ResponseData;
+import com.doing.plugin.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 15:38
@@ -8,14 +12,16 @@ import com.doing.plugin.extension.PreAndPostExtension;
 public class TaobaoPreAndPostExtension implements PreAndPostExtension {
 
     @Override
-    public void beforeProcess(String params, StringBuilder processRecord) {
-        System.out.println("新淘宝活动前置处理流程");
-        processRecord.append("新淘宝活动前置处理流程 - ");
+    public void beforeProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+        responseData.addData("Taobao.pre", "淘宝活动前置处理流程");
+        extensionContext.getLogger().warn("Taobao.pre - 淘宝活动前置处理流程");
+        extensionContext.debug("Taobao", "淘宝活动前置处理流程");
     }
 
     @Override
-    public void afterProcess(String params, StringBuilder processRecord) {
-        System.out.println("新淘宝活动后置处理流程");
-        processRecord.append("新淘宝活动后置处理流程");
+    public void afterProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+        responseData.addData("Taobao.after", "淘宝活动后置处理流程");
+        extensionContext.getLogger().warn("Taobao.after - 淘宝活动后置处理流程");
+        extensionContext.debug("Taobao", "淘宝活动后置处理流程");
     }
 }

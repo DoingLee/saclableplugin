@@ -1,6 +1,9 @@
 package com.doing.plugin.extension.taobao;
 
-import com.doing.plugin.extension.ModifyExtension1;
+import com.doing.plugin.plugin.domain.ExtensionContext;
+import com.doing.plugin.plugin.domain.RequestData;
+import com.doing.plugin.plugin.domain.ResponseData;
+import com.doing.plugin.plugin.extension.ModifyExtension1;
 import com.google.gson.Gson;
 
 /**
@@ -9,14 +12,15 @@ import com.google.gson.Gson;
 public class TaobaoModifyExtension1 implements ModifyExtension1 {
 
     @Override
-    public void modify(String params, StringBuilder processRecord) {
+    public void modify(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
         // 测试使用仅在扩展脚本依赖进来的第三方包Gson
         Gson gson = new Gson();
-        String jsonString = "{\"name\":\"活动A\"}" ;
+        String jsonString = "{\"name\":\"活动A\"}";
         Activity activity = gson.fromJson(jsonString, Activity.class);
 
-        System.out.println("新淘宝活动优化处理流程1" + activity.getName());
-        processRecord.append("新淘宝活动优化处理流程1：" + activity.getName() + " - ");
+        responseData.addData("Taobao.modify1", "淘宝活动优化处理流程1=" + activity.getName());
+        extensionContext.getLogger().warn("Taobao.modify1 - 淘宝活动优化处理流程1={}", activity.getName());
+        extensionContext.debug("Taobao", "淘宝活动优化处理流程1={}", activity.getName());
     }
 
     public static class Activity {

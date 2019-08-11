@@ -1,21 +1,26 @@
 package com.doing.plugin.extension.jd;
 
-import com.doing.plugin.extension.PreAndPostExtension;
+
+import com.doing.plugin.plugin.domain.ExtensionContext;
+import com.doing.plugin.plugin.domain.RequestData;
+import com.doing.plugin.plugin.domain.ResponseData;
+import com.doing.plugin.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 15:38
  */
 public class JdPreAndPostExtension implements PreAndPostExtension {
-
     @Override
-    public void beforeProcess(String params, StringBuilder processRecord) {
-        System.out.println("京东活动前置处理流程");
-        processRecord.append("京东活动前置处理流程 - ");
+    public void beforeProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+        responseData.addData("Jd.pre", "京东活动前置处理流程");
+        extensionContext.getLogger().warn("Jd.pre - 京东活动前置处理流程");
+        extensionContext.debug("Jd", "京东活动前置处理流程");
     }
 
     @Override
-    public void afterProcess(String params, StringBuilder processRecord) {
-        System.out.println("京东活动后置处理流程");
-        processRecord.append("京东活动后置处理流程");
+    public void afterProcess(ExtensionContext extensionContext, RequestData requestData, ResponseData responseData) {
+        responseData.addData("Jd.after", "京东活动后置处理流程");
+        extensionContext.getLogger().warn("Jd.after - 京东活动后置处理流程");
+        extensionContext.debug("Jd", "京东活动后置处理流程");
     }
 }

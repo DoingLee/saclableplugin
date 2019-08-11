@@ -18,9 +18,9 @@ public class TaobaoModifyExtension1 implements ModifyExtension1 {
         String jsonString = "{\"name\":\"活动A\"}";
         Activity activity = gson.fromJson(jsonString, Activity.class);
 
-        responseData.addData("Taobao.modify1", "淘宝活动优化处理流程1=" + activity.getName());
-        extensionContext.getLogger().warn("Taobao.modify1 - 淘宝活动优化处理流程1={}", activity.getName());
-        extensionContext.debug("Taobao", "淘宝活动优化处理流程1={}", activity.getName());
+        responseData.addData("Taobao.modify1", "新淘宝活动优化处理流程1=" + activity.getName());
+        extensionContext.getLogger().warn("Taobao.modify1 - 新淘宝活动优化处理流程1={}", activity.getName());
+        extensionContext.debug("Taobao", "新淘宝活动优化处理流程1={}", activity.getName());
     }
 
     public static class Activity {

@@ -132,7 +132,7 @@
                         <configuration>
                             <!--http://maven.apache.org/plugins/maven-shade-plugin/examples/attached-artifact.html-->
                             <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <shadedClassifierName>${project.artifactId}-jar-with-dependencies</shadedClassifierName> <!-- Any name that makes sense -->
+                            <shadedClassifierName>jar-with-dependencies</shadedClassifierName> <!-- Any name that makes sense -->
                             <artifactSet>
                                 <!-- 当引入新的依赖时，请注意排包 -->
                                 <!--groupId:artifactId-->

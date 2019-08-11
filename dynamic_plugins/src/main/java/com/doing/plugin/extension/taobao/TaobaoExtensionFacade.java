@@ -1,10 +1,10 @@
 package com.doing.plugin.extension.taobao;
 
 import com.doing.plugin.BizCode;
-import com.doing.plugin.plugin.extension.ExtensionFacade;
-import com.doing.plugin.plugin.extension.ModifyExtension1;
-import com.doing.plugin.plugin.extension.ModifyExtension2;
-import com.doing.plugin.plugin.extension.PreAndPostExtension;
+import com.doing.plugin.extension.ExtensionFacade;
+import com.doing.plugin.extension.ModifyExtension1;
+import com.doing.plugin.extension.ModifyExtension2;
+import com.doing.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 19:44

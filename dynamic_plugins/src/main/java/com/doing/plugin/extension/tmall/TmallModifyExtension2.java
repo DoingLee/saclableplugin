@@ -1,9 +1,9 @@
 package com.doing.plugin.extension.tmall;
 
-import com.doing.plugin.plugin.domain.ExtensionContext;
-import com.doing.plugin.plugin.domain.RequestData;
-import com.doing.plugin.plugin.domain.ResponseData;
-import com.doing.plugin.plugin.extension.ModifyExtension2;
+import com.doing.plugin.domain.ExtensionContext;
+import com.doing.plugin.domain.RequestData;
+import com.doing.plugin.domain.ResponseData;
+import com.doing.plugin.extension.ModifyExtension2;
 
 /**
  * @author Doing on 19/12/2018 19:26

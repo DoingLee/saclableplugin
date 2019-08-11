@@ -1,9 +1,9 @@
 package com.doing.plugin.extension.taobao;
 
-import com.doing.plugin.plugin.domain.ExtensionContext;
-import com.doing.plugin.plugin.domain.RequestData;
-import com.doing.plugin.plugin.domain.ResponseData;
-import com.doing.plugin.plugin.extension.ModifyExtension1;
+import com.doing.plugin.domain.ExtensionContext;
+import com.doing.plugin.domain.RequestData;
+import com.doing.plugin.domain.ResponseData;
+import com.doing.plugin.extension.ModifyExtension1;
 import com.google.gson.Gson;
 
 /**

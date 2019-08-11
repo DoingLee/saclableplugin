@@ -1,10 +1,10 @@
 package com.doing.plugin.extension.mogu;
 
 
-import com.doing.plugin.plugin.domain.ExtensionContext;
-import com.doing.plugin.plugin.domain.RequestData;
-import com.doing.plugin.plugin.domain.ResponseData;
-import com.doing.plugin.plugin.extension.PreAndPostExtension;
+import com.doing.plugin.domain.ExtensionContext;
+import com.doing.plugin.domain.RequestData;
+import com.doing.plugin.domain.ResponseData;
+import com.doing.plugin.extension.PreAndPostExtension;
 
 /**
  * @author Doing on 19/12/2018 15:38

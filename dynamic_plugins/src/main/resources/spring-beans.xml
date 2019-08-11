@@ -4,14 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- <context:component-scan base-package="com.doing...."/> -->
-
-    <bean id="xmlStringBean1" class="java.lang.String">
-        <constructor-arg value="stringBean1"/>
-    </bean>
-
-    <bean id="xmlStringBean2" class="java.lang.String">
-        <constructor-arg value="stringBean2"/>
-    </bean>
+    <bean id="testService" class="com.doing.plugin.extension.taobao.service.TestService"/>
 
 </beans>

@@ -1,4 +1,4 @@
-package com.doing.plugin.extension.taobao;
+package com.doing.plugin.extension.taobao.extensions;
 
 import com.doing.plugin.BizCode;
 import com.doing.plugin.extension.ExtensionFacade;

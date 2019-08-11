@@ -15,8 +15,8 @@ public class TaobaoModifyExtension2 implements ModifyExtension2 {
 
     @Override
     public void modify(String params, StringBuilder processRecord) {
-        System.out.println("淘宝活动优化处理流程2 : " + xmlStringBean1);
-        processRecord.append("淘宝活动优化处理流程2 : " + xmlStringBean1 + " - ");
+        System.out.println("新淘宝活动优化处理流程2 : " + xmlStringBean1);
+        processRecord.append("新淘宝活动优化处理流程2 : " + xmlStringBean1 + " - ");
 
     }
 }

@@ -15,8 +15,8 @@ public class TaobaoModifyExtension1 implements ModifyExtension1 {
         String jsonString = "{\"name\":\"活动A\"}" ;
         Activity activity = gson.fromJson(jsonString, Activity.class);
 
-        System.out.println("淘宝活动优化处理流程1" + activity.getName());
-        processRecord.append("淘宝活动优化处理流程1：" + activity.getName() + " - ");
+        System.out.println("新淘宝活动优化处理流程1" + activity.getName());
+        processRecord.append("新淘宝活动优化处理流程1：" + activity.getName() + " - ");
     }
 
     public static class Activity {

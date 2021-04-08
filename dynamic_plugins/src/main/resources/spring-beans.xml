@@ -4,8 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="testService" class="com.doing.plugin.extension.taobao.service.TestService">
-        <property name="testVersion" value="${test.version}"/>
-    </bean>
+    <bean id="testService" class="com.doing.plugin.extension.taobao.service.TestService"></bean>
 
 </beans>

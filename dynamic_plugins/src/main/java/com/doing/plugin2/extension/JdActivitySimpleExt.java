@@ -12,9 +12,9 @@ public class JdActivitySimpleExt implements ActivitySimpleExt {
     @Override
     public ResponseData simpleProcess(ExtensionContext extensionContext, RequestData requestData) {
         ResponseData responseData = new ResponseData();
-        responseData.addData("Jd.simpleProcess", "京东活动简单处理流程");
-        extensionContext.getLogger().warn("Jd.simpleProcess - 京东活动简单处理流程");
-        extensionContext.debug("Jd", "京东活动简单处理流程");
+        responseData.addData("Jd.simpleProcess", "京东活动简单处理流程 19:40");
+        extensionContext.getLogger().warn("Jd.simpleProcess - 京东活动简单处理流程 19:40");
+        extensionContext.debug("Jd", "京东活动简单处理流程 19:40");
         return responseData;
     }
 }

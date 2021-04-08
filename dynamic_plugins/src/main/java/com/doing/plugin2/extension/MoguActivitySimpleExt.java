@@ -12,9 +12,9 @@ public class MoguActivitySimpleExt implements ActivitySimpleExt {
     @Override
     public ResponseData simpleProcess(ExtensionContext extensionContext, RequestData requestData) {
         ResponseData responseData = new ResponseData();
-        responseData.addData("Mogu.simpleProcess", "蘑菇街活动简单处理流程");
-        extensionContext.getLogger().warn("Mogu.simpleProcess - 蘑菇街活动简单处理流程");
-        extensionContext.debug("Mogu", "蘑菇街活动简单处理流程");
+        responseData.addData("Mogu.simpleProcess", "蘑菇街活动简单处理流程 19:41");
+        extensionContext.getLogger().warn("Mogu.simpleProcess - 蘑菇街活动简单处理流程 19:41");
+        extensionContext.debug("Mogu", "蘑菇街活动简单处理流程 19:41");
         return responseData;
     }
 }

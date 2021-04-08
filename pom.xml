@@ -48,16 +48,17 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>*.xml</include>
-                    <include>*.properties</include>
-                </includes>
-            </resource>
-        </resources>
+        <!--不配置，就是所有资源都加载？-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<includes>-->
+                    <!--<include>*.xml</include>-->
+                    <!--<include>*.properties</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
 
         <plugins>
             <plugin>

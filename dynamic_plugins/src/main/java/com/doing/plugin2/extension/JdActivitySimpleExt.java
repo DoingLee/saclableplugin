@@ -22,8 +22,12 @@ public class JdActivitySimpleExt implements ActivitySimpleExt {
     @Override
     public ResponseData simpleProcess(ExtensionContext extensionContext, RequestData requestData) {
         ResponseData responseData = new ResponseData();
-        responseData.addData("Jd.simpleProcess", "京东活动简单处理流程 19:40");
-        responseData.addData("testService result", testService.test());
+        responseData.addData("Jd.simpleProcess", "京东活动简单处理流程 20:40");
+        if (null == testService) {
+            responseData.addData("testService", "is null");
+        } else {
+            responseData.addData("testService result", testService.test());
+        }
         if (null != testVersion) {
             requestData.addData("testVersion property", testVersion);
         } else {

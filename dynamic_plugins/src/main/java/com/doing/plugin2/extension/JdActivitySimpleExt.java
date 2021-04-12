@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @CloudBean(key = "jdActivitySimpleExt", description = "京东简单扩展点")
 public class JdActivitySimpleExt implements ActivitySimpleExt {
 
-    @Resource
+    @Resource(name = "testService")
     private TestService testService;
 
     @Value("${test.version}")

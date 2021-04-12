@@ -16,19 +16,19 @@ public class JdActivitySimpleExt implements ActivitySimpleExt {
     @Resource
     private TestService testService;
 
-//    @Value("${test.version}")
-//    private String testVersion;
+    @Value("${test.version}")
+    private String testVersion;
 
     @Override
     public ResponseData simpleProcess(ExtensionContext extensionContext, RequestData requestData) {
         ResponseData responseData = new ResponseData();
         responseData.addData("Jd.simpleProcess", "京东活动简单处理流程 19:40");
         responseData.addData("testService result", testService.test());
-//        if (null != testVersion) {
-//            requestData.addData("testVersion property", testVersion);
-//        } else {
-//            requestData.addData("testVersion property", "null");
-//        }
+        if (null != testVersion) {
+            requestData.addData("testVersion property", testVersion);
+        } else {
+            requestData.addData("testVersion property", "null");
+        }
 
         extensionContext.getLogger().warn("Jd.simpleProcess - 京东活动简单处理流程 19:40");
         extensionContext.debug("Jd", "京东活动简单处理流程 19:40");

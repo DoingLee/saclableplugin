@@ -29,9 +29,9 @@ public class JdActivitySimpleExt implements ActivitySimpleExt {
             responseData.addData("testService result", testService.test());
         }
         if (null != testVersion) {
-            requestData.addData("testVersion property", testVersion);
+            responseData.addData("testVersion property", testVersion);
         } else {
-            requestData.addData("testVersion property", "null");
+            responseData.addData("testVersion property", "null");
         }
 
         extensionContext.getLogger().warn("Jd.simpleProcess - 京东活动简单处理流程 19:40");

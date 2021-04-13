@@ -6,6 +6,7 @@ import com.doing.biz.domain.RequestData;
 import com.doing.biz.domain.ResponseData;
 import com.doing.container.sdk.CloudBean;
 import com.doing.plugin.extension.taobao.service.TestService;
+import com.doing.plugin.extension.util.TestUtils;
 
 import javax.annotation.Resource;
 

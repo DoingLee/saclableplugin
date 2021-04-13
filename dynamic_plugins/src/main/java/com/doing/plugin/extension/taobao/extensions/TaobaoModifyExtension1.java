@@ -5,7 +5,6 @@ import com.doing.plugin.domain.RequestData;
 import com.doing.plugin.domain.ResponseData;
 import com.doing.plugin.extension.ModifyExtension1;
 import com.doing.plugin.extension.util.TestUtils;
-import com.google.gson.Gson;
 
 /**
  * @author Doing on 19/12/2018 19:26

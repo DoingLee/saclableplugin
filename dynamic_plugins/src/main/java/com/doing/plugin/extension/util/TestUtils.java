@@ -1,14 +1,13 @@
 package com.doing.plugin.extension.util;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSONObject;
 
 public class TestUtils {
 
     public static Activity getTestActivity() {
-        // 测试使用仅在扩展脚本依赖进来的第三方包Gson
-        Gson gson = new Gson();
+        // 测试使用仅在扩展脚本依赖进来的第三方包
         String jsonString = "{\"name\":\"活动A\"}";
-        Activity activity = gson.fromJson(jsonString, Activity.class);
+        Activity activity = JSONObject.parseObject(jsonString, Activity.class);
         return activity;
     }
 
